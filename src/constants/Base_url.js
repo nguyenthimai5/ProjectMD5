@@ -1,0 +1,1 @@
+export const BASE_URL_CATALOG="http://localhost:3000/catalogs";

@@ -1,0 +1,131 @@
+@use '../../scss/abstracts/' as *;
+@use 'sass:math';
+.sidebarComponent {
+  flex: 1;
+  background-color: rgb(219 193 241);
+  position: sticky;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+  
+  flex-grow: 1;
+  .box-avt-img{
+    text-align:center;
+  img{
+    margin:auto;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+   &__menu {
+        @include flex(stretch, flex-start);
+        flex-direction: column;
+        flex-grow: 1;
+        box-shadow:1px 6px 8px -3px rgb(11 0 46 / 79%);
+
+        &__item {
+            @include flex(center, flex-start);
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 20%;
+            transition: color 0.3s ease-in-out;
+
+            @include tablet {
+                padding-left: $mobileSpacing;
+            }
+
+            &:hover {
+                color: $mainColor;
+
+                @include tablet {
+                    color: $orange;
+                }
+            }
+
+            &.active {
+                font-weight: 700;
+                color: $mainColor;
+
+                @include tablet {
+                    color: $orange;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    height: 100%;
+                    width: 5px;
+                    left: 0;
+                    top: 0;
+                    background-color: $mainColor;
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
+
+                    @include tablet {
+                        background-color: $orange;
+                    }
+                }
+            }
+
+            &__icon {
+                --size: 50px;
+                width: var(--size);
+                height: var(--size);
+                margin-right: 3rem;
+                @include flex(center, center);
+
+                @include tablet {
+                    margin-right: 1rem;
+                }
+
+                i {
+                    font-size: 2.3rem;
+                }
+            }
+
+            &:last-child {
+                margin-top: auto;
+                cursor: pointer;
+            }
+        }
+    }
+  
+  .wrapper {
+    padding: 20px;
+    color: #555;
+
+    .menu {
+      margin-bottom: 10px;
+
+      h3 {
+        font-size: 13px;
+        color:rgb(14 26 0)
+      }
+
+      ul {
+        list-style: none;
+        padding: 5px;
+
+        li {
+          padding: 5px;
+          cursor: pointer;
+          display: flex;
+          border-radius: 10px;
+          gap: 5px;
+          transition: 0.1s ease-in-out;
+
+          .icon {
+            font-size: 20px;
+          }
+          
+          &.active, &:hover {
+            background-color: rgb(228, 228, 228);
+          }
+        }
+      }
+    }
+  }
+}

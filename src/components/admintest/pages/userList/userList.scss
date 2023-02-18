@@ -1,0 +1,54 @@
+.userListPage {
+  flex: 4;
+  .box-item-header{
+    display: flex;
+    align-items: center;
+    .userList{
+      flex: auto;
+      margin: 0px 6px 12px 65px;
+      color: #9d8ba3;
+    }
+    .btn-create{
+      border-radius: 5px; 
+      font-size: 20px; 
+      margin: 20px; 
+      padding: 4px 14px; 
+      background-color: rgb(145, 107, 177); 
+      border: 0; 
+      color: white;
+  }
+  }
+  .from{
+    margin: 0px 65px;
+     box-shadow: 4px -5px 10px -6px rgb(9 0 19 / 64%);
+    
+    }
+    .userListField {
+      display: flex;
+      align-items: center;
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+    }
+  
+    .editButton {
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      background-color:#9d8ba3;
+      color: white;
+      margin-right: 15px;
+      cursor: pointer;
+  
+    }
+  
+    .deleteButton {
+      cursor: pointer;
+      color:rgb(56 76 58);
+    }
+  
+}
