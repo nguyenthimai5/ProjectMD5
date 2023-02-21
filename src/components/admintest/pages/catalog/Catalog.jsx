@@ -8,26 +8,26 @@ export default function Catalog(props) {
  const dispatch=useDispatch();
  const navigate=useNavigate()
  const handleEdit=()=>{
-     navigate(`editCatalog/${catalog.id}`,{state:catalog})
+     navigate(`editCatalog/${catalog.catalogId}`,{state:catalog})
  }
  const handleDelete=()=>{
-  dispatch(delete_catalog(catalog.id))
+  dispatch(delete_catalog(catalog.catalogId))
  }
   return (
     <tr>
-    <td className="text-center">{catalog.id}</td>
+    <td className="text-center">{catalog.catalogId}</td>
     <td>{catalog.catalogName}</td>
     <td className="text-center">
       <span
         className={
-          catalog.catalogStatus === "true"
-            ? "label label-info"
-            :  "label label-danger"
+          (catalog.catalogStatus===true)
+            ?"label label-info"
+            :"label label-danger"
         }
       >
-        {catalog.catalogStatus === "true"
-          ? "Hoạt Động"
-          : "Không Hoạt Động"}
+        {(catalog.catalogStatus===true)
+          ?"Hoạt Động"
+          :"Không Hoạt Động"}
       </span>
     </td>
     <td>
@@ -42,9 +42,8 @@ export default function Catalog(props) {
         type="button"
         className="btn btn-danger"
         onClick={handleDelete}
-          
-      >
-        Delete
+        >
+        UnDisplay
       </button>
     </td>
   </tr>

@@ -9,6 +9,7 @@ import { get_all_catalog } from '../../../../action/catalogaction';
 
 export default function ListCatalog() {
   const listCatalog=useSelector(state=>state.listCatalog);
+  console.log("List catalog ====>",listCatalog);
    const dispatch=useDispatch();
   useEffect(()=>{
   getDataCatalogs().then((res)=>{
@@ -16,7 +17,7 @@ export default function ListCatalog() {
   })
   },[listCatalog])
   let element=listCatalog?.map((data)=>{
-    return <Catalog key={data.id} catalog={data} />
+    return <Catalog key={data.catalogId} catalog={data} />
   })
   return (
     <div className="catalogListPage">

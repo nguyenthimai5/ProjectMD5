@@ -1,3 +1,6 @@
 import {combineReducers} from "redux"
 import {listCatalog} from "./listCatalog"
-export const rootReducer=combineReducers({listCatalog})
+import { listSize } from "./listSize"
+import {listTopping} from "./listTopping"
+import { listProduct } from "./listProduct"
+export const rootReducer=combineReducers({listCatalog,listSize,listTopping,listProduct})

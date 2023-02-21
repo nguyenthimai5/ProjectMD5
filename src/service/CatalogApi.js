@@ -5,12 +5,16 @@ const url=BASE_URL_CATALOG;
 
 export const getDataCatalogs= async(id)=>{
     id=id||""
+    return await axios.get(`${url}/getAll/${id}`);
+}
+
+export const getDataCatalogsTrue= async(id)=>{
+    id=id||""
     return await axios.get(`${url}/${id}`);
 }
 
 export const createCatalogs= async(catalog)=>{
-    console.log("gọi API thành công");
-   
+  
     return await axios.post(url,catalog);
 }
 

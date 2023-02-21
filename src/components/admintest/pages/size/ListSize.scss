@@ -1,0 +1,49 @@
+.listSizePage {
+
+    .box-item-header{
+      display:flex;
+      align-items:center;
+      .catalogList{
+        flex:auto;
+        margin:0px 6px 12px 65px;
+      }
+    }
+    flex: 4;
+    .btn-create{
+        border-radius: 5px; 
+        font-size: 20px; 
+        margin: 20px; 
+        padding: 4px 14px; 
+        background-color: teal; 
+        border: 0; 
+        color: white;
+    }
+    .productListField {
+      display: flex;
+      align-items: center;
+      
+      img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+    }
+  
+    .editButton {
+      border: none;
+      border-radius: 10px;
+      padding: 5px 10px;
+      background-color: #af6ea1;
+      color: white;
+      margin-right: 15px;
+      cursor: pointer;
+  
+    }
+  
+    .deleteButton {
+      cursor: pointer;
+      color: rgb(155, 95, 147);
+    }
+  }

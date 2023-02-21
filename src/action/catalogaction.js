@@ -8,7 +8,6 @@ export const get_all_catalog = (listCatalog) => {
 }
 
 export const create_catalog = (catalog) => {
-    console.log("vào action");
     return {
         type: type.CREATE_CATALOG,
         payload: catalog
@@ -16,7 +15,6 @@ export const create_catalog = (catalog) => {
 }
 
 export const update_catalog = (catalog) => {
-    console.log("vào đây",catalog);
     return {
         type: type.UPDATE_CATALOG,
         payload: catalog

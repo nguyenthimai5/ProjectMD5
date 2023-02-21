@@ -6,7 +6,7 @@ import './NewCatalog.scss'
 
 const NewCatalog = () => {
     const [catalogName,setCatalogName]=useState("");
-    const [catalogStatus,]=useState("true");
+    const [catalogStatus,]=useState(true);
     const navigate=useNavigate();
     const dispatch=useDispatch();
     const handleCreate=()=>{

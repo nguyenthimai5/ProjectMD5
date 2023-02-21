@@ -15,16 +15,22 @@ import './styles/app.scss'
 import ListCatalog from './pages/listCatalog/ListCatalog'
 
 import NewCatalog from './pages/newCatalog/NewCatalog'
-import { DataCatalogProviders } from '../../dummyData'
+
 
 import UpdateCatalog from './pages/catalog/UpdateCatalog'
+import ListSize from './pages/size/ListSize'
+import UpDateSize from './pages/size/UpDateSize'
+import NewSize from './pages/size/NewSize'
+import ListTopping from './pages/topping/ListTopping'
+import UpdateTopping from './pages/topping/UpdateTopping'
+import NewTopping from './pages/topping/NewTopping'
 
 
 export default function AppAdimintest() {
   return (
     
     <>
-    <DataCatalogProviders >
+   
     <Topbar/>
         <div className="containerApp">
           <Sidebar/>
@@ -42,13 +48,21 @@ export default function AppAdimintest() {
             <Route path='/newProduct' element={<NewProduct />} />
 
             <Route path='/catalog' element={<ListCatalog />} />
-            <Route path='/catalog/editCatalog/:catalogId' element={<UpdateCatalog />} />
+            <Route path='/catalog/editCatalog/:id' element={<UpdateCatalog />} />
             <Route path='/newCatalog' element={<NewCatalog />} />
+
+            <Route path='/size' element={<ListSize />} />
+            <Route path='/size/editSize/:id' element={<UpDateSize />} />
+            <Route path='/newSize' element={<NewSize />} />
+
+            <Route path='/topping' element={<ListTopping />} />
+            <Route path='/topping/editTopping/:id' element={<UpdateTopping />} />
+            <Route path='/newTopping' element={<NewTopping />} />
 
   
           </Routes>
         </div>
-        </DataCatalogProviders>
+       
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { userData } from '../../../../dummyData'
+
 import Chart from '../../components/chart/Chart'
 import FeaturedInfo from '../../components/featuredInfo/FeaturedInfo'
 import WidgetLg from '../../components/widgetLg/WidgetLg'
@@ -12,7 +12,7 @@ const Home = () => {
     <div className='homePage'>
       <FeaturedInfo />
       <Chart 
-        data={userData} 
+       
         dataKey={'Active User'}
         grid={true}
         title={'User Analytics'}

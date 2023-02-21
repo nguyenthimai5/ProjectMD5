@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { update_catalog } from '../../../../action/catalogaction'
-import { productData } from '../../../../dummyData'
+
 import Chart from '../../components/chart/Chart'
 import './catalog.scss'
 const UpdateCatalog= () => {
@@ -14,9 +14,8 @@ const UpdateCatalog= () => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const handleUpdate=()=>{
-    let catalogEdit={id:catalogUp.id,catalogName,catalogStatus}
-    console.log("Edit",catalogEdit);
-   dispatch(update_catalog(catalogEdit))
+    let catalogEdit={id:catalogUp.catalogId,catalogName,catalogStatus}
+      dispatch(update_catalog(catalogEdit))
   navigate(-1)
   }
  
@@ -29,7 +28,7 @@ const UpdateCatalog= () => {
         <div className="top">
           <div className="topLeft">
             <Chart
-              data={productData}
+             
               dataKey="Sales"
               title="Sales Perfomance"
               grid
@@ -46,21 +45,17 @@ const UpdateCatalog= () => {
             <div className="bottomInfo">
               <div className="infoItem">
                 <span className="key">id:</span>
-                <span className="value">123</span>
+                <span className="value">{catalogUp.catalogId}</span>
               </div>
               <div className="infoItem">
-                <span className="key">sales:</span>
-                <span className="value">5123</span>
+                <span className="key">Name:</span>
+                <span className="value">{catalogUp.catalogName}</span>
               </div>
               <div className="infoItem">
-                <span className="key">active:</span>
-                <span className="value">yes</span>
+                <span className="key">Status:</span>
+                <span className="value">{(catalogUp.catalogStatus)?"Hoạt Động":"Không Hoạt Động"}</span>
               </div>
-              <div className="infoItem">
-                <span className="key">in stock:</span>
-                <span className="value">no</span>
               </div>
-            </div>
           </div>
         </div>
         <div className="bottom">
@@ -70,8 +65,8 @@ const UpdateCatalog= () => {
               <input type="text" placeholder="name" value={catalogName} onChange={(e)=>setCatalogName(e.target.value)}/>
               <label>Status</label>
               <select name="active" id="active" value={catalogStatus} onChange={(e)=>setCatalogStatus(e.target.value)}>
-                <option value="true">Yes</option>
-                <option value="fasle">No</option>
+                <option value={true}>Yes</option>
+                <option value={false}>No</option>
               </select>
             </div>
             <div className="right">
