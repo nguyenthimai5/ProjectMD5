@@ -6,14 +6,24 @@ export const getDataSize = async (id) => {
     id = id || ""
     return await axios.get(`${url}/getAll/${id}`)
 }
-export const createSize=async(size)=>{
-    console.log("call Api thanh cong");
-    return await axios.post(url,size)
+export const getDataSizeTrue = async (id) => {
+    id = id || ""
+    return await axios.get(`${url}/${id}`)
 }
 
-export const editSize=async(id,size)=>{
-    return await axios.put(`${url}/${id}`,size)
+export const searchSize = async (name) => {
+
+    return await axios.get(`${url}/search?name=${name}`)
 }
-export const deleteSize=async(id)=>{
+
+export const createSize = async (size) => {
+ 
+    return await axios.post(url, size)
+}
+
+export const editSize = async (id, size) => {
+    return await axios.put(`${url}/${id}`, size)
+}
+export const deleteSize = async (id) => {
     return await axios.delete(`${url}/${id}`)
 }

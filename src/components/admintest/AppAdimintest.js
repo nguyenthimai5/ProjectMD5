@@ -9,14 +9,10 @@ import UserList from '../admintest/pages/userList/UserList'
 import User from '../admintest/pages/user/User'
 import NewUser from '../admintest/pages/newUser/NewUser'
 import ProductList from '../admintest/pages/productList/ProductList'
-import Product from '../admintest/pages/product/Product'
 import NewProduct from '../admintest/pages/newProduct/NewProduct'
 import './styles/app.scss'
 import ListCatalog from './pages/listCatalog/ListCatalog'
-
 import NewCatalog from './pages/newCatalog/NewCatalog'
-
-
 import UpdateCatalog from './pages/catalog/UpdateCatalog'
 import ListSize from './pages/size/ListSize'
 import UpDateSize from './pages/size/UpDateSize'
@@ -24,6 +20,10 @@ import NewSize from './pages/size/NewSize'
 import ListTopping from './pages/topping/ListTopping'
 import UpdateTopping from './pages/topping/UpdateTopping'
 import NewTopping from './pages/topping/NewTopping'
+import UpdateProduct from './pages/product/UpdateProduct'
+import ListProductDetail from './pages/productDetails/ListProductDetail'
+
+import NewProductDetails from './pages/productDetails/NewProductDetails'
 
 
 export default function AppAdimintest() {
@@ -44,8 +44,11 @@ export default function AppAdimintest() {
             <Route path='/newUser' element={<NewUser />} />
       
             <Route path='/products' element={<ProductList />} />
-            <Route path='/product/:productId' element={<Product />} />
+            <Route path='/editproduct/:productId' element={<UpdateProduct />} />
             <Route path='/newProduct' element={<NewProduct />} />
+
+            <Route path='/productsdetails' element={<ListProductDetail />} />
+            <Route path='/newProductDetails' element={<NewProductDetails />} />
 
             <Route path='/catalog' element={<ListCatalog />} />
             <Route path='/catalog/editCatalog/:id' element={<UpdateCatalog />} />
@@ -58,8 +61,6 @@ export default function AppAdimintest() {
             <Route path='/topping' element={<ListTopping />} />
             <Route path='/topping/editTopping/:id' element={<UpdateTopping />} />
             <Route path='/newTopping' element={<NewTopping />} />
-
-  
           </Routes>
         </div>
        

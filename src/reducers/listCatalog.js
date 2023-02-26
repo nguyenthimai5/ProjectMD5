@@ -1,4 +1,4 @@
-import { CREATE_CATALOG, DELETE_CATALOG, GET_ALL_CATALOG, UPDATE_CATALOG } from "../constants/Constant";
+import { CREATE_CATALOG, DELETE_CATALOG, GET_ALL_CATALOG, GET_ALL_CATALOG_TRUE, SEARCH_CATALOG, UPDATE_CATALOG } from "../constants/Constant";
 import { createCatalogs, deleteCatalogs, getDataCatalogs, updateCatalogs } from "../service/CatalogApi";
 
 let initialState = []
@@ -6,6 +6,12 @@ let initialState = []
 export const listCatalog = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_CATALOG:
+            state = action.payload
+            return state;
+        case GET_ALL_CATALOG_TRUE:
+            state = action.payload
+            return state;
+        case SEARCH_CATALOG:
             state = action.payload
             return state;
         case CREATE_CATALOG:

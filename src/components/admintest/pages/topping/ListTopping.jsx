@@ -1,28 +1,42 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { act_get_all_topping } from '../../../../action/toppingaction';
-import { getDataTopping } from '../../../../service/ToppingApi';
+import { act_get_all_topping,search_get_all_topping_true } from '../../../../action/toppingaction';
+import { getDataTopping , searchToppingName} from '../../../../service/ToppingApi';
 import './ListTopping.scss'
 import Topping from './Topping';
 
 export default function ListTopping() {
    const listTopping=useSelector(state=>state.listTopping);
    const dispatch=useDispatch();
+   const [reCall, setReCall] = useState(true);
    useEffect(()=>{
     getDataTopping().then((res)=>
           dispatch(act_get_all_topping(res.data))
         )
-   },[listTopping])
+   },[reCall])
+
+   const render = () => {
+    setReCall(!reCall)
+     }
+  
+    const handleSearch = (e) => {
+        searchToppingName(e).then((res) => {
+        dispatch(search_get_all_topping_true(res.data))
+  
+      })
+      
+    }  
  
    let elementTopping=listTopping?.map((topping)=>{
-    return <Topping key={topping.toppingId} topping={topping}/>
+    return <Topping key={topping.toppingId} topping={topping} render={render}/>
    })
 
 
     return (
         <div className="listToppingPage">
             <div className="box-item-header">
+            <input type="text" className="catalogList" placeholder='Search topping.....'  onChange={(e) => handleSearch(e.target.value)}/>
                 <Link to="/admintest/newTopping">
                     <button className="btn-create">Create</button>
                 </Link>

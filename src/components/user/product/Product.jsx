@@ -1,23 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function Product() {
-    return (
+export default function Product(props) {
+    const {product}=props;
+   
+    
+    
+       return (
         <div className="col-lg-4 col-md-6 special-grid drinks">
             <div className="gallery-single fix">
                 <Link to='/user/productDetails'>
-                    <img src="user/images/img-01.jpg" className="img-fluid" alt="Image" />
+                    <img src={product.imageProduct} className="img-fluid" alt={product.productName} style={{width:"350px",height:"250px"}} />
                 </Link>
 
                 <div className="why-text">
                     <Link to='/user/productDetails'>
-                        <h4>Special Drinks 1</h4>
+                        <h4>{product.productName}</h4>
                     </Link>
                     <Link to='/user/productDetails'>
                         <p>Sed id magna vitae eros sagittis euismod.</p>
                     </Link>
                     <Link to='/user/productDetails'>
-                        <h5> $7.79</h5>
+                        <h5>{product.priceProduct}$</h5>
                     </Link>
                 </div>
             </div>

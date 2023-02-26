@@ -3,26 +3,36 @@ import { Link } from 'react-router-dom';
 import Catalog from '../catalog/Catalog';
 import { useDispatch, useSelector } from 'react-redux';
 
-import React, { useEffect } from 'react'
-import { getDataCatalogs } from '../../../../service/CatalogApi';
-import { get_all_catalog } from '../../../../action/catalogaction';
+import React, { useEffect, useState } from 'react'
+import { getDataCatalogs, searchCatalog } from '../../../../service/CatalogApi';
+import { get_all_catalog, search_catalog } from '../../../../action/catalogaction';
 
 export default function ListCatalog() {
   const listCatalog=useSelector(state=>state.listCatalog);
-  console.log("List catalog ====>",listCatalog);
+  const [reCall, setReCall] = useState(true);
    const dispatch=useDispatch();
   useEffect(()=>{
   getDataCatalogs().then((res)=>{
     dispatch(get_all_catalog(res.data))
   })
-  },[listCatalog])
+  },[reCall])
+  const render = () => {
+    setReCall(!reCall)
+     }
+
+    const handleSearch = (e) => {
+      searchCatalog(e).then((res) => {
+        dispatch(search_catalog(res.data))
+      })
+      
+    }  
   let element=listCatalog?.map((data)=>{
-    return <Catalog key={data.catalogId} catalog={data} />
+    return <Catalog key={data.catalogId} catalog={data} render={render}/>
   })
   return (
     <div className="catalogListPage">
       <div className="box-item-header">
-        
+      <input type="text" className="catalogList" placeholder='Search catalog.....'  onChange={(e) => handleSearch(e.target.value)}/>
         <Link to="/admintest/newCatalog">
           <button className="btn-create">Create</button>
         </Link>

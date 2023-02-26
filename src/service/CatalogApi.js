@@ -13,6 +13,10 @@ export const getDataCatalogsTrue= async(id)=>{
     return await axios.get(`${url}/${id}`);
 }
 
+export const searchCatalog= async(name)=>{
+    return await axios.get(`${url}/searchByName?name=${name}`);
+}
+
 export const createCatalogs= async(catalog)=>{
   
     return await axios.post(url,catalog);

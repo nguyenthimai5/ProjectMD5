@@ -3,4 +3,5 @@ import {listCatalog} from "./listCatalog"
 import { listSize } from "./listSize"
 import {listTopping} from "./listTopping"
 import { listProduct } from "./listProduct"
-export const rootReducer=combineReducers({listCatalog,listSize,listTopping,listProduct})
+import {listProductDetail} from "./listProductDetails"
+export const rootReducer=combineReducers({listCatalog,listSize,listTopping,listProduct,listProductDetail})

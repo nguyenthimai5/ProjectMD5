@@ -10,8 +10,8 @@ export default function Size(props) {
   const handleEdit=()=>{
    navigate(`editSize/${size.sizeId}`,{state:size})
   }
-
   const handleDelete=()=>{
+    props.render();
   dispatch(act_delete_size(size.sizeId))
   }
 
@@ -37,17 +37,24 @@ export default function Size(props) {
         type="button"
         className="btn btn-warning"
         onClick={handleEdit}
+        style={{height:"27px",width:"75px"}}
       >
         Edit
       </button>
       <button
-        type="button"
-        className="btn btn-danger"
+          type="button"
+          className={
+            (  size.sizeStatus ===true)
+              ? "label label-success"
+              : "label label-tertiary-color"
+          }
+          style={{height:"27px",width:"75px"}}
         onClick={handleDelete}
-          
-      >
-        UnDisplay
-      </button>
+        >
+           {(  size.sizeStatus ===true)
+         ? "UNDISPLAY"
+         : "DISPLAY"}
+        </button>
     </td>
   </tr>
   )

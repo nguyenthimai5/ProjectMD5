@@ -14,6 +14,7 @@ export default function Topping(props) {
   }
 
   const handleDelete=()=>{
+    props.render()
   dispatch(act_delete_topping(topping.toppingId))
   }
 
@@ -45,15 +46,23 @@ export default function Topping(props) {
           type="button"
           className="btn btn-warning"
           onClick={handleEdit}
+          style={{height:"27px",width:"75px"}}
         >
           Edit
         </button>
         <button
           type="button"
-          className="btn btn-danger"
+          className={
+            (topping.toppingStatus === true)
+              ? "label label-success"
+              : "label label-tertiary-color"
+          }
+          style={{height:"27px",width:"75px"}}
         onClick={handleDelete}
         >
-          UnDisplay
+           {(topping.toppingStatus === true)
+        ? "UNDISPLAY"
+        : "DISPLAY"}
         </button>
       </td>
     </tr>

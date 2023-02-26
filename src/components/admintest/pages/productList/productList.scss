@@ -5,8 +5,12 @@
     align-items:center;
     .catalogList{
       flex:auto;
+      border-radius: 12px;
+      border-color: #b6d7a8;
+      height: 35px;
       margin:0px 6px 12px 65px;
     }
+    
   }
   flex: 4;
   .btn-create{

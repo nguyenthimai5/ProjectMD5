@@ -30,8 +30,7 @@ export default function NewTopping() {
       getDownloadURL(snaphsot.ref).then((url)=>{
         setImageTopping(url)
       })
-    
-     
+
     })
   }
 

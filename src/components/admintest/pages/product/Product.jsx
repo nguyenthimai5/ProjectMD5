@@ -1,8 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { act_delete_product } from '../../../../action/productaction';
 
 export default function Product(props) {
-  let {product}=props;
-  
+  let { product } = props;
+  const navigate = useNavigate();
+  const handleEdit = () => {
+    navigate(`/admintest/editproduct/${product.productId}`, { state: product })
+  }
+  const dispatch = useDispatch();
+  const handleDelete = () => {
+    dispatch(act_delete_product(product.productId))
+    props.render()
+  }
 
   return (
     <tr>
@@ -16,31 +27,39 @@ export default function Product(props) {
 
       <td className="text-center">
         <span
-        className={
-          (product.productStatus === true)
-            ? "label label-info"
-            : "label label-danger"
-        }
+          className={
+            (product.productStatus === true)
+              ? "label label-info"
+              : "label label-danger"
+          }
         >
           {(product.productStatus === true)
-          ? "Hoạt Động"
-          : "Không Hoạt Động"}
+            ? "Còn Hàng"
+            : "Hết Hàng"}
         </span>
       </td>
       <td>
         <button
           type="button"
           className="btn btn-warning"
-        // onClick={handleEdit}
+          onClick={handleEdit}
+          style={{ height: "27px", width: "75px" }}
         >
           Edit
         </button>
         <button
           type="button"
-          className="btn btn-danger"
-        // onClick={handleDelete}
+          className={
+            (product.productStatus === true)
+              ? "label label-success"
+              : "label label-tertiary-color"
+          }
+          style={{ height: "27px", width: "75px" }}
+          onClick={handleDelete}
         >
-          UnDisplay
+          {(product.productStatus === true)
+            ? "UNDISPLAY"
+            : "DISPLAY"}
         </button>
       </td>
     </tr>
